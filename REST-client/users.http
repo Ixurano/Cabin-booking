@@ -1,0 +1,14 @@
+@baseUrl=http://localhost:3030
+###
+// Authenticate
+
+GET {{baseUrl}}/users/
+Content-Type: application/json
+
+{
+    "firstName":"Joe ",
+    "lastName":"Doe",
+    "email": "Joe@doe.doe",
+    "password": "Password123"
+}
+

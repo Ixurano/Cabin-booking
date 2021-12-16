@@ -1,0 +1,51 @@
+@baseUrl=http://localhost:3030
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjE1MTgwOWZkNDY2NWE2MmViYjkxOTgyIiwiZW1haWwiOiJqb2VAZG9lLmRvZSIsImlhdCI6MTYzMjc0MjQxNiwiZXhwIjoxNjMyNzQ5NjE2fQ.yUyxYDK8I0bQIiXpbNrm9Eg6cfhKWl1Cu6MAaYrIwvQ
+
+//Joe: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjE1MTgwOWZkNDY2NWE2MmViYjkxOTgyIiwiZW1haWwiOiJqb2VAZG9lLmRvZSIsImlhdCI6MTYzMjc0MjQxNiwiZXhwIjoxNjMyNzQ5NjE2fQ.yUyxYDK8I0bQIiXpbNrm9Eg6cfhKWl1Cu6MAaYrIwvQ
+
+//Jane: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjE1MTcyNzJhODVlNWIwODNjMTMwOWM5IiwiZW1haWwiOiJqYW5lQGRvZS5kb2UiLCJpYXQiOjE2MzI3Mzc0NDcsImV4cCI6MTYzMjc0NDY0N30.qRCYOIiltlKmqIu5r_WWp9XK6yPGVkbLD-_fTPdWlOo
+
+###
+// se alla dina cabins
+GET {{baseUrl}}/cabins
+Content-Type: application/json
+###
+// se en specifik booking med dens ID
+GET {{baseUrl}}/cabins/6150545833d22cd5e0e480b0
+Content-Type: application/json
+x-access-token: {{token}}
+###
+// Skapar en ny stuga
+POST {{baseUrl}}/cabins
+Content-Type: application/json
+x-access-token: {{token}}
+
+{
+
+    "adress": "majjun",
+    "size": "200m2",
+    "sauna": true,
+    "beach": false,
+    "price": 200
+
+}
+###
+// Modifiera en stuga
+PATCH  {{baseUrl}}/cabins/615197158eefb16afc9e36c9
+Content-Type: application/json
+x-access-token: {{token}}
+
+{
+
+    "adress": "Testar igen 2",
+    "size": "200m2",
+    "sauna": true,
+    "beach": false,
+    "price": 200
+
+}
+###
+// Delete en specifik bookning med ID
+DELETE {{baseUrl}}/booking/6150545833d22cd5e0e480b0
+x-access-token: {{token}}
+

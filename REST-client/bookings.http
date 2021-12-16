@@ -1,0 +1,45 @@
+@baseUrl= http://localhost:3030
+
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjE1MTgwOWZkNDY2NWE2MmViYjkxOTgyIiwiZW1haWwiOiJqb2VAZG9lLmRvZSIsImlhdCI6MTYzMjc1NDE0OCwiZXhwIjoxNjMyNzYxMzQ4fQ.GV2oQzHUTCXZEIowP6gUBWRFV464cpKSlG455q3HYQk
+// Om token är expired kör auth.http get igen för en ny
+
+###
+// se alla dina bookningar.
+GET {{baseUrl}}/booking
+Content-Type: application/json
+###
+// se en specifik booking med dens ID
+GET {{baseUrl}}/booking/614aeff3f4851f8d13210d31
+x-access-token: {{token}}
+###
+// Skapar en booking
+POST {{baseUrl}}/booking
+Content-Type: application/json
+x-access-token: {{token}}
+
+{
+    "cabin": "615196f38eefb16afc9e36c5",
+    "description": "specifik stuga",
+    "startDate": "2021-09-29",
+    "endDate": "2021-09-28",
+    "booked": true
+
+}
+###
+// Modifiera en bokning
+PATCH  {{baseUrl}}/booking/615198be54bfc4c65c98157d
+Content-Type: application/json
+x-access-token: {{token}}
+
+{
+
+    "description": "Funkar för Jane igen",
+    "startDate": "2021-09-22",
+    "endDate": "2021-09-23",
+    "booked": true
+
+}
+###
+// Delete en specifik bookning med ID
+DELETE {{baseUrl}}/booking/6151840c8155731ec09acd8a
+x-access-token: {{token}}

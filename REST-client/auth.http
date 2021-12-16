@@ -1,0 +1,21 @@
+@baseUrl= http://localhost:3030
+###
+// Authenticate
+POST {{baseUrl}}/auth
+Content-Type: application/json
+
+{
+    "email": "joe@doe.doe",
+    "password": "Password123"
+}
+
+###
+// Refresh token
+
+GET {{baseUrl}}/auth/refresh
+Content-Type: application/json
+
+{
+ "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjE0YjE5NjJmYzYzYTQxMDRiZDljYWU3IiwiZW1haWwiOiJsYXN0LmZpcnN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNjMyMzE4NDg2LCJleHAiOjE2MzM1MjgwODZ9.jVC0wJuZdAiZ4ExzDheZv5gKWlAAo2JPP0QPF5BoEhg"
+}
+
